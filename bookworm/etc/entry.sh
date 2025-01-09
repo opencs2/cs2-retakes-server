@@ -25,12 +25,12 @@ mkdir -p $STEAMAPPDIR/game/csgo/cfg
 cp /etc/server.cfg "${STEAMAPPDIR}"/game/csgo/cfg/server.cfg
 
 # Install hooks if they don't already exist
-if [[ ! -f "${STEAMAPPDIR}/pre.sh" ]] ; then
-    cp /etc/pre.sh "${STEAMAPPDIR}/pre.sh"
-fi
-if [[ ! -f "${STEAMAPPDIR}/post.sh" ]] ; then
-    cp /etc/post.sh "${STEAMAPPDIR}/post.sh"
-fi
+#if [[ ! -f "${STEAMAPPDIR}/pre.sh" ]] ; then
+#    cp /etc/pre.sh "${STEAMAPPDIR}/pre.sh"
+#fi
+#if [[ ! -f "${STEAMAPPDIR}/post.sh" ]] ; then
+#    cp /etc/post.sh "${STEAMAPPDIR}/post.sh"
+#fi
 
 # Download and extract custom config bundle
 if [[ ! -z $CS2_CFG_URL ]]; then
@@ -72,7 +72,7 @@ fi
 cd "${STEAMAPPDIR}/game/bin/linuxsteamrt64"
 
 # Pre Hook
-source "${STEAMAPPDIR}/pre.sh"
+source /etc/pre.sh
 
 # Construct server arguments
 
@@ -137,4 +137,4 @@ eval "./cs2" -dedicated \
         "${CS2_ADDITIONAL_ARGS}"
 
 # Post Hook
-source "${STEAMAPPDIR}/post.sh"
+source /etc/post.sh
