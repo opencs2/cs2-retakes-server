@@ -29,6 +29,8 @@ RUN set -x \
                 libicu-dev \
                 unzip \
 		jq \
+                tar \
+                libarchive-tools \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
 	&& chmod +x "${HOMEDIR}/entry.sh" \
